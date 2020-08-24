@@ -6,22 +6,52 @@
   <link href="https://fonts.googleapis.com/css2?family=League+Script&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box}ul[class],ol[class]{padding:0}body,h1,h2,h3,h4,p,ul[class],ol[class],figure,blockquote,dl,dd{margin:0}html{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}ul[class],ol[class]{list-style:none}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}article>*+*{margin-top:1em}input,button,textarea,select{font:inherit}img:not([alt]){filter:blur(10px)}@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+    [hidden] {display: none;}
 
     :root {
-      background: linear-gradient(180deg, #F9D7DF 0%, #FFC9C9 100%);
+      background: linear-gradient(180deg, hsl(220 74% 91% / 1) 0%, hsl(280 100% 87% / 1) 100%);
       color: white;
       background-position: fixed;
       font-family: 'League Script', cursive;
       min-height: 100vh;
     }
     .trampampam {
+      min-height: 100vh;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+    }
+    .trampampam:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: url(#cloud-filter);
+      z-index: -1;
+      width: 60vw;
+      height: 40vh;
+      background: radial-gradient(white 0%, transparent 50%);
+      animation: 3s linear infinite alternate move;
+    }
+    @keyframes move {
+      from { transform: translate(0, 0);}
+      to { transform: translate(40vw, 0); }
+    }
+    .trampampam h1 {
+      opacity: 0;
+      animation: 3s both fadein;
+      font-size: 4rem;
+    }
+    @keyframes fadein {
+      from {opacity: 0}
+      to {opacity: 1}
     }
   </style>
 </head>
+
+<svg width="0" height="0" hidden><filter id="cloud-filter"><feTurbulence type="fractalNoise" baseFrequency="0.003" numOctaves="10" seed="135"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="459"></feDisplacementMap></filter></svg>
 
 <main class="trampampam">
   <h1>TramPamPam</h1>
