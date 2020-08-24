@@ -31,27 +31,81 @@
       filter: url(#cloud-filter);
       z-index: -1;
       width: 60vw;
-      height: 40vh;
+      height: 30vh;
       background: radial-gradient(white 0%, transparent 50%);
-      animation: 3s linear infinite alternate move;
+      animation: 10.8s linear infinite alternate move;
     }
     @keyframes move {
-      from { transform: translate(0, 0);}
-      to { transform: translate(40vw, 0); }
+      from { transform: translate(0, 0); height: 30vh; width: 60vw; }
+      to { transform: translate(40vw, 0); height: 50vh; width: 30vw; }
     }
     .trampampam h1 {
       opacity: 0;
-      animation: 3s both fadein;
+      animation: 3s both fadein, .5s linear both infinite squiggly;
       font-size: 4rem;
     }
     @keyframes fadein {
       from {opacity: 0}
       to {opacity: 1}
     }
+    @keyframes squiggly {
+      0% {
+        filter: url("#squiggly-0");
+      }
+      25% {
+        filter: url("#squiggly-3");
+      }
+      50% {
+        filter: url("#squiggly-2");
+      }
+      75% {
+        filter: url("#squiggly-1");
+      }
+      100% {
+        filter: url("#squiggly-4");
+      }
+    }
   </style>
 </head>
 
-<svg width="0" height="0" hidden><filter id="cloud-filter"><feTurbulence type="fractalNoise" baseFrequency="0.003" numOctaves="10" seed="135"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="459"></feDisplacementMap></filter></svg>
+<svg width="0" height="0" hidden>
+<filter id="cloud-filter"><feTurbulence type="fractalNoise" baseFrequency="0.003" numOctaves="10" seed="135"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="459"></feDisplacementMap></filter>
+<filter id="squiggly-0">
+    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0" />
+    <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
+</filter>
+<filter id="squiggly-1">
+    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1" />
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+</filter>
+
+<filter id="squiggly-2">
+    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+</filter>
+<filter id="squiggly-3">
+    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3" />
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+</filter>
+
+<filter id="squiggly-4">
+    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4" />
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+</filter>
+</svg>
+
+<!-- <svg width="650" height="500">
+
+    <filter id='roughpaper' x='0%' y='0%' width='100%' height="100%">
+
+        <feTurbulence type="fractalNoise" baseFrequency='0.04' result='noise' numOctaves="5" />
+
+        <feDiffuseLighting in='noise' lighting-color='white' surfaceScale='2'>
+            <feDistantLight azimuth='45' elevation='60' />
+</feDiffuseLighting>
+</filter>
+    <rect x="0" y="0" width="100%" height="100%" filter="url(#roughpaper)" fill="none"/>
+</svg> -->
 
 <main class="trampampam">
   <h1>TramPamPam</h1>
