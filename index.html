@@ -14,7 +14,7 @@
       background-position: fixed;
       font-family: 'League Script', cursive;
       /* filter: url(#roughpaper); */
-      background: url(blossom.svg), linear-gradient(180deg, hsl(220 74% 91% / 1), hsl(220 74% 91% / 0));
+      background: url(blossom.svg), linear-gradient(0deg, hsl(220 74% 91% / 1) 0%, hsl(220 74% 91% / 0) 50%, hsl(220 74% 98% / 1) 100%);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -27,8 +27,6 @@
     }
     .trampampam {
       height: 100vh;
-      height: -webkit-fill-available;
-      height: stretch;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -60,6 +58,7 @@
       font-size: 8vmin;
       line-height: 1.08;
       color: white;
+      /* text-shadow: 0 0px 2em white; */
     }
     @keyframes fadein {
       0% {opacity: 0}
